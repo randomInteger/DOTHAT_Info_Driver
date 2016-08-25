@@ -17,7 +17,7 @@ Then just run the script from the source folder:
 
 ./interface_data.py
 
-Example output:
+Example output (Please view this in raw mode, markup doesn't like the formatting)
 $ ./interface_data.py
 
 Regular terminal formatting:
