@@ -42,6 +42,10 @@ if dns == 0:
 else:
     print("No DNS\n")
 for iface in ifaces:
+    ipv4address = ni.ifaddresses(iface)[AF_INET][0]['addr']
+    netmask = ni.ifaddresses(iface)[AF_INET][0]['netmask']
+    link = ni.ifaddresses(iface)[AF_LINK]
+    inet = ni.ifaddresses(iface)[AF_INET]
     print("************************************")
     print(iface,"ip")
     print(ipv4address)
