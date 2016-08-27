@@ -1,55 +1,109 @@
 #!/usr/bin/env python3
+"""
+This code is intended to produce data for display
+on a 16x3 display such as the Pimrioni Display-o-Tron
+hat (raspberry pi).
 
+This code can be pulled into a script that controls
+the Display-o-Tron.
+
+This version is for python 3.3+
+
+"""
 import os
+import time
+import json
+import socket
+import subprocess
 import netifaces as ni
-from netifaces import AF_INET, AF_LINK
+from netifaces import AF_INET, AF_INET6, AF_LINK
+from time import strftime
 
+#Variables for testing dns and internet connectivity
 hostname = "google.com"
 public_ip = "8.8.8.8"
-dns = os.system("ping -c 1 " + hostname + " > /dev/null 2>&1")
+
+#Test system public DNS resolution
+try:
+    socket.gethostbyname('google.com')
+    dns = True
+except socket.gaierror as e:
+    dns = False
+
+#Test for ping to 8.8.8.8 = can we ping the outside world.
+#response of 0 means success
 internet = os.system("ping -c 1 " + public_ip + " > /dev/null 2>&1")
 
-print("\nRegular terminal formatting:")
-
-#List the interfaces
-print("\nListing all interfaces:")
+#Get interfaces via netifaces
 ifaces = ni.interfaces()
-print(ifaces)
 
-#Iterate over the interface list and print data
-for iface in ifaces:
-    ipv4address = ni.ifaddresses(iface)[AF_INET][0]['addr']
-    netmask = ni.ifaddresses(iface)[AF_INET][0]['netmask']
-    link = ni.ifaddresses(iface)[AF_LINK]
-    inet = ni.ifaddresses(iface)[AF_INET]
-    print("\nInterface %s has ip address %s" % (iface,ipv4address))
-    print("%s LINK data:" % iface)
-    print(link)
-    print("%s INET data:" % iface)
-    print(inet)
+#Get root partition free space
+df = subprocess.Popen(["df", "-h", "/"], stdout=subprocess.PIPE)
+output = df.communicate()[0]
+#Split the second line output into a tuple of strings
+#This is a bit of a hasty one-liner...
+(device, size, used, available, percent, mountpoint) = output.decode("utf-8").split("\n")[1].split()
 
-print("\nFormatting for 16x2 display")
-print("************************************")
-#response == 0 means ping succeeded
+#Get system time
+ymd = strftime("%Y-%m-%d")
+hms = strftime("%H:%M:%S")
+epoch = int(time.time())
+
+#Start the sample dispay output
+print("****************")
+#Time and date info
+print(ymd)
+print(hms)
+print(epoch)
+print("****************")
+#Disk info
+print("Disk: ", mountpoint)
+print("Used: ", percent)
+print("Free: ", available)
+print("****************")
+#Network info
+print("Network:")
 if internet == 0:
-    print("Internet OK\n")
+    print("Internet OK")
 else:
-    print("No Internet\n")
-print("************************************")
-#response == 0 means ping succeeded
-if dns == 0:
-    print("DNS OK\n")
+    print("No Internet")
+
+if dns:
+    print("DNS OK")
 else:
-    print("No DNS\n")
+    print("No DNS")
+print("****************")
+#Iterate over the interfaces
 for iface in ifaces:
-    ipv4address = ni.ifaddresses(iface)[AF_INET][0]['addr']
-    netmask = ni.ifaddresses(iface)[AF_INET][0]['netmask']
-    link = ni.ifaddresses(iface)[AF_LINK]
-    inet = ni.ifaddresses(iface)[AF_INET]
-    print("************************************")
-    print(iface,"ip")
-    print(ipv4address)
-    print("************************************")
+    if AF_INET in ni.ifaddresses(iface).keys():
+        inet = ni.ifaddresses(iface)[AF_INET]
+        link = ni.ifaddresses(iface)[AF_LINK]
+        if 'addr' in inet[0].keys():
+                ipv4address = inet[0]['addr']
+        if 'netmask' in inet[0].keys():
+                netmask = inet[0]['netmask']
+    elif AF_INET6 in ni.ifaddresses(iface).keys():
+        inet = ni.ifaddresses(iface)[AF_INET6]
+        link = ni.ifaddresses(iface)[AF_LINK]
+        ipv4address = ipv4address = inet[0]['addr']
+        netmask = inet[0]['netmask']
+    else:
+        ipv4address = "no ip"
+        netmask = "n/a"
+    print("****************")
+    #Interface address
+    print(iface)
+    if len(ipv4address) < 17:
+        print(ipv4address)
+    else:
+        print(ipv4address[:16])
+        print(ipv4address[16:32])
+    print("****************")
+    #Interface netmask
     print(iface,"mask")
-    print(netmask)
-print("************************************")
+    if len(netmask) < 17:
+        print(netmask)
+    else:
+        print(netmask[:16])
+        print(netmask[16:32])
+print("****************")
