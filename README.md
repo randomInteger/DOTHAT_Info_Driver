@@ -18,5 +18,7 @@ Then just run the script from the source folder:
 
 ./interface_data.py
 
+This is just way of showing how you might grab and format this data, to run it on the DOTHAT you would adapt their example scripts to loop over the strings in the print statements in this script.  I will upload that version, with screenshots as soon as I get my DOTHAT and get it all tied together.
+
 Example output:
 [![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-27%20at%205.13.02%20PM.png)]
