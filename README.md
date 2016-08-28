@@ -1,7 +1,7 @@
 # python_iface_inspector
 Simple example python code to inspect interfaces (as well as some other bonus data) and format the output. Intended as a template for data shown on a 16x3 Raspberry PI display such as the Pimoroni Display-o-Tron Hat.
 
-My long term goal here is to pop the DOTHAT on my Warberry Pi build (https://github.com/secgroundzero/warberry) so that I have a box I can plug headless into a network and dump all of the network data.  Using a hat like this will make it easy to shell into the PI from another machine at its DHCP address without needing to hook up a monitor, log into the router/swtich, or run nmap to discover the pi's dhcp address.
+My long term goal here is to pop the DOTHAT on my Warberry Pi build (https://github.com/secgroundzero/warberry) so that I have a box I can plug headless into a network and dump all of the network data.  Using a hat like this will make it trivial to learn the PI's dhcp address as well as confirm that the pi has network connectivity, without needing to hook up a monitor or SSH into the pi from another machine.  
 
 For info on driving the DOT hat:
 https://github.com/pimoroni/dot3k
