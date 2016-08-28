@@ -14,11 +14,11 @@ I recommend you always sandbox python projects in a virtualenv.  The requirement
 
 Example (Python3.4 version):
 
-"virtualenv -p /usr/bin/python3.4 ./.env"
+virtualenv -p /usr/bin/python3.4 ./.env
 
-"source .env/bin/activate"
+source .env/bin/activate
 
-"pip install -r ./requirements.txt"
+pip install -r ./requirements.txt
 
 Then just run the script from the source folder:
 
