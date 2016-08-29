@@ -29,15 +29,10 @@ class DotHatInfo:
     are meant to be written as lines 1,2,3 on a 16x3
     Display-o-Tron.
     """
-    def __init__(self, param1="", param2=""):
+    def __init__(self):
         """
         Constructor
         """
-        # try:
-        #     (param1, param2)
-        # except NameError:
-        #     tprint("Attempt to initialize DotHatInfo class object failed due to missing arguments!  Exiting!")
-        #     raise
         #Initialize object data
         self.hostname = "google.com"
         self.public_ip = "8.8.8.8"
