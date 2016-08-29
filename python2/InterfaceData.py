@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 """
 This code is intended to produce data for display
 on a 16x3 display such as the Pimrioni Display-o-Tron
