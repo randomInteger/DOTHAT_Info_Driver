@@ -8,7 +8,8 @@ This code can be pulled into a script that controls
 the Display-o-Tron.
 
 This version is for python 3.3+, and is only intended
-for raspbian/debian.
+for raspbian/debian and may not be portable to other
+flavors of linux without adaptation.
 
 """
 import os
