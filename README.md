@@ -1,4 +1,4 @@
-# InterfaceData.py (formerly known as "python_iface_inspector")
+# DOTHAT_Info_Driver:  A class for scraping system data, and the code to run it on a Pimoroni Display-o-Tron Raspberry PI hat.
 Simple example python code to inspect interfaces (as well as some other bonus data) and format the output. Intended as a template for data shown on a 16x3 Raspberry PI display such as the Pimoroni Display-o-Tron Hat.
 
 Tested on debian linux.
