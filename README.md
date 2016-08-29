@@ -1,4 +1,4 @@
-# python_iface_inspector
+# InterfaceData.py (formerly known as "python_iface_inspector")
 Simple example python code to inspect interfaces (as well as some other bonus data) and format the output. Intended as a template for data shown on a 16x3 Raspberry PI display such as the Pimoroni Display-o-Tron Hat.
 
 Tested on debian linux.
