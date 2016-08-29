@@ -11,6 +11,7 @@ Python 2 version
 import sys
 import time
 import signal
+#import dothat.lcd as lcd
 from InterfaceData import DotHatInfo
 
 #shutdown message
