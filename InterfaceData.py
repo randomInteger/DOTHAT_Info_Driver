@@ -43,9 +43,9 @@ class DotHatInfo:
         self.public_ip = "8.8.8.8"
 
     def time_date(self):
-    """
-    Returns a tuple of three strings for display.
-    """
+        """
+        Returns a tuple of three strings for display.
+        """
         #Get system time
         ymd = strftime("%Y-%m-%d")
         hms = strftime("%H:%M:%S")
@@ -53,9 +53,9 @@ class DotHatInfo:
         return (ymd, hms, epoch)
 
     def disk_info(self):
-    """
-    Returns a tuple of three strings for display.
-    """
+        """
+        Returns a tuple of three strings for display.
+        """
         #Get root partition free space
         df = subprocess.Popen(["df", "-h", "/"], stdout=subprocess.PIPE)
         output = df.communicate()[0]
@@ -65,9 +65,9 @@ class DotHatInfo:
         return ("Disk: " + mountpoint, "Free: " + percent, "Avail: " + available)
 
     def mem_info(self):
-    """
-    Returns a tuple of three strings for display.
-    """
+        """
+        Returns a tuple of three strings for display.
+        """
         #Get % free memory
         cmd_memfree = "free | grep Mem | awk \'{print $4/$2 * 100.0}\'"
         mem = subprocess.Popen(cmd_memfree, stdout=subprocess.PIPE, shell=True)
@@ -81,9 +81,9 @@ class DotHatInfo:
         return ("Memory:", percmemfree, swaptotal)
 
     def network_ok(self):
-    """
-    Returns a tuple of three strings for display.
-    """
+        """
+        Returns a tuple of three strings for display.
+        """
         #Test system public DNS resolution
         try:
             socket.gethostbyname(self.hostname)
@@ -100,11 +100,11 @@ class DotHatInfo:
         return ("Network", dns, internet)
 
     def iface_info(self):
-    """
-    Returns a list of three-string tuples for display,
-    since each interface will produce more than one screen
-    of info (one for ip, one for netmask)
-    """
+        """
+        Returns a list of three-string tuples for display,
+        since each interface will produce more than one screen
+        of info (one for ip, one for netmask)
+        """
         interfaces = []
         #Get interfaces via netifaces
         ifaces = ni.interfaces()
