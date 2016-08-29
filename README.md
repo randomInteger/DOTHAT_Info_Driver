@@ -26,5 +26,5 @@ Then just run the script from the source folder:
 
 Currently it just prints to the screen, but the commented code will be activated and tested very soon!  (Waiting on my Dothat to arrive).
 
-Example output:
+Example output (shows ipv6 handling, will line wrap IP and netmask if they are longer than 16 chars):
 [![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-28%20at%205.09.54%20PM.png)]
