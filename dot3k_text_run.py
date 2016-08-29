@@ -4,6 +4,8 @@ Write three lines to the screen, update once every 2 seconds.
 
 Currently just prints to the terminal, will be updated later
 with working DOTHAT code.
+
+Python 3 version.
 """
 #import dothat.lcd as lcd
 import sys
@@ -74,7 +76,7 @@ while True:
     #write_screen(line1, line2, line3)
     fake_write_screen(line1, line2, line3)
     time.sleep(2)
-    
+
     #Get a list of three-line tuples containing interface
     #data and print them all
     ifaces_screens = dot3kdata.iface_info()
