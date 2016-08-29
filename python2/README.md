@@ -9,3 +9,5 @@ virtualenv -p /usr/bin/python ./.env
 source .env/bin/activate
 
 pip install -r requirements.txt
+
+./dot3k_text_run.py
