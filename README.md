@@ -27,9 +27,9 @@ Then just run the script from the source folder:
 Currently it just prints to the screen, but the commented code will be activated and tested very soon!  (Waiting on my Dothat to arrive).  Messages rotate every 2 seconds.  A row of stars in the sample output is used to represent the Display-o-Tron screen edge.
 
 Example output (shows ipv6 handling, will line wrap IP and netmask if they are longer than 16 chars):
-[![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-28%20at%205.09.54%20PM.png)]
+![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-28%20at%205.09.54%20PM.png)
 
 If you run the threaded runner, you will see the same text updates as published by dot3k_text_run.py, interleaved with lighting updates a frequency of ~10hz:
 
 Example output (shows interleaved light and text updates):
-[![solarized dualmode](https://github.com/randomInteger/DOTHAT_Info_Driver/blob/master/Screen%20Shot%202016-08-28%20at%209.24.42%20PM.png)]
+![solarized dualmode](https://github.com/randomInteger/DOTHAT_Info_Driver/blob/master/Screen%20Shot%202016-08-28%20at%209.24.42%20PM.png)
