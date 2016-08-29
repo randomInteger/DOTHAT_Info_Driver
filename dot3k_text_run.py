@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 Write three lines to the screen, update once every 2 seconds.
 
