@@ -27,4 +27,4 @@ Then just run the script from the source folder:
 Currently it just prints to the screen, but the commented code will be activated and tested very soon!  (Waiting on my Dothat to arrive).
 
 Example output:
-[![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-27%20at%205.13.02%20PM.png)]
+[![solarized dualmode](https://github.com/randomInteger/python_iface_inspector/blob/master/Screen%20Shot%202016-08-28%20at%205.09.54%20PM.png)]
